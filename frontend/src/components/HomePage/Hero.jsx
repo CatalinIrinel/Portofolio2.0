@@ -34,13 +34,13 @@ function Hero() {
         zIndex={'10'}
         textAlign={['center', null, null, 'left']}
       >
-        <Heading as={'h1'} fontSize={['2.5rem', null, '3rem', '4rem']}>
+        <Heading as={'h1'} fontSize={['h1', null, 'h1', 'h1']}>
           {hero.name}
         </Heading>
         <Heading
           as={'h3'}
           mb={'2rem'}
-          fontSize={['1.5rem', '2.5rem']}
+          fontSize={['h3', 'h2']}
           fontWeight={'100'}
         >
           {hero.title}

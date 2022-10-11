@@ -1,12 +1,12 @@
 import { Box, Heading, Image, Link, Text } from '@chakra-ui/react';
 import { projects as projText } from '../../constants/Texts';
 import { Buttons } from '../Button';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import LoadingBox from '../LoadingBox';
 import MessageBox from '../MessageBox';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,6 +28,7 @@ function Projects() {
     projects: [],
   });
   useEffect(() => {
+    Aos.init();
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
@@ -38,7 +39,6 @@ function Projects() {
       }
     };
     fetchData();
-    Aos.init({ disable: window.innerWidth < 600 });
   }, []);
   return (
     <Box
@@ -64,7 +64,7 @@ function Projects() {
           as={'h2'}
           color={'#fff'}
           w={'700px'}
-          fontSize={['2rem', '3rem']}
+          fontSize={'h2'}
           fontWeight={600}
           textAlign={['center', null, null, 'left']}
         >

@@ -1,5 +1,6 @@
 import {
   Avatar,
+  AvatarBadge,
   Box,
   Image,
   ListItem,
@@ -84,15 +85,19 @@ function Navbar({ toggle }) {
         display={['none', null, null, 'block']}
         color={'#fff'}
         position={'absolute'}
-        right={'10rem'}
+        right={'15rem'}
         zIndex={10000}
       >
         {userInfo && userInfo.isAdmin && (
           <Menu id="admin-nav-dropdown">
             <MenuButton display="flex" alignItems="center">
-              <Avatar marginRight="0.5rem" size="xs" bg="brand.400" />
-              Administrator
-              <ChevronDownIcon />
+              <Avatar name="Istratoae Catalin" bg="brand.600" color="#000">
+                <AvatarBadge
+                  boxSize={'1rem'}
+                  bg={'green.500'}
+                  border={'none'}
+                />
+              </Avatar>
             </MenuButton>
             <MenuList bg={'brand.400'}>
               <Link to="/admin/dashboard">

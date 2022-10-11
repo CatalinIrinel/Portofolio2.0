@@ -1,5 +1,6 @@
 import {
   Avatar,
+  AvatarBadge,
   Box,
   ListItem,
   Menu,
@@ -10,7 +11,7 @@ import {
   UnorderedList,
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
-import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
+import { CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 
@@ -43,6 +44,7 @@ function Sidebar({ isOpen, toggle }) {
         alignItems={'center'}
         justifyContent={'center'}
         color={'brand.600'}
+        gap={'1.5rem'}
       >
         <Box
           w="100%"
@@ -54,6 +56,69 @@ function Sidebar({ isOpen, toggle }) {
           justifyContent="flex-end"
         >
           <CloseIcon boxSize={6} onClick={toggle} />
+        </Box>
+        <Box mb={'1rem'}>
+          {userInfo && userInfo.isAdmin && (
+            <Menu id="admin-nav-dropdown">
+              <MenuButton display="flex" alignItems="center">
+                <Avatar
+                  name="Istratoae Catalin"
+                  size="md"
+                  bg="brand.600"
+                  color="#000"
+                >
+                  <AvatarBadge
+                    boxSize={'1.25rem'}
+                    bg={'green.500'}
+                    border={'none'}
+                  />
+                </Avatar>
+              </MenuButton>
+              <MenuList bg={'brand.400'}>
+                <Link to="/admin/dashboard">
+                  {' '}
+                  <MenuItem
+                    _focus={{ background: 'brand.500', color: '#000' }}
+                    onClick={toggle}
+                  >
+                    Dashboard
+                  </MenuItem>
+                </Link>
+
+                <Link to="/admin/projects">
+                  {' '}
+                  <MenuItem
+                    _focus={{ background: 'brand.500', color: '#000' }}
+                    onClick={toggle}
+                  >
+                    Proiecte
+                  </MenuItem>
+                </Link>
+
+                <Link to="/admin/techs">
+                  {' '}
+                  <MenuItem
+                    _focus={{ background: 'brand.500', color: '#000' }}
+                    onClick={toggle}
+                  >
+                    Tehnologii
+                  </MenuItem>
+                </Link>
+
+                <MenuDivider />
+                <Link to="#signout" onClick={signoutHandler}>
+                  {' '}
+                  <MenuItem
+                    _focus={{ background: 'brand.500', color: '#000' }}
+                    onClick={toggle}
+                  >
+                    {' '}
+                    Delogare
+                  </MenuItem>
+                </Link>
+              </MenuList>
+            </Menu>
+          )}
         </Box>
         <UnorderedList
           listStyleType="none"
@@ -77,39 +142,6 @@ function Sidebar({ isOpen, toggle }) {
             <Link to="/contact">Contact</Link>
           </ListItem>
         </UnorderedList>
-        <Box>
-          {userInfo && userInfo.isAdmin && (
-            <Menu id="admin-nav-dropdown">
-              <MenuButton display="flex" alignItems="center">
-                <Avatar marginRight="0.5rem" size="xs" bg="brand.400" />
-                Administrator
-                <ChevronDownIcon />
-              </MenuButton>
-              <MenuList>
-                <Link to="/admin/dashboard" onClick={toggle}>
-                  {' '}
-                  <MenuItem>Dashboard</MenuItem>
-                </Link>
-                <Link to="/admin/projects" onClick={toggle}>
-                  {' '}
-                  <MenuItem>Proiecte</MenuItem>
-                </Link>
-
-                <MenuDivider />
-                <Link
-                  to="#signout"
-                  onClick={() => {
-                    signoutHandler();
-                    toggle();
-                  }}
-                >
-                  {' '}
-                  <MenuItem> Log Out</MenuItem>
-                </Link>
-              </MenuList>
-            </Menu>
-          )}
-        </Box>
       </Box>
     </Box>
   );

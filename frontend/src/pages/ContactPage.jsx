@@ -53,11 +53,11 @@ function ContactPage() {
         'calc(100vh - 6.25rem - 4rem - 24rem)',
         null,
         null,
-        'calc(100vh - 12.5rem - 6rem)',
+        'calc(100vh - 6.25rem - 6rem)',
       ]}
       display={'flex'}
       alignItems={'center'}
-      justifyContent={'flex-start'}
+      justifyContent={'space-evenly'}
       gap={'1.5rem'}
       flexDir={'column'}
       color={'#fff'}
@@ -85,13 +85,14 @@ function ContactPage() {
           justifyContent={'center'}
           alignItems={'center'}
           gap={'5rem'}
+          textAlign={['center', 'left']}
         >
           <Box>
             <Heading
               as="h2"
-              fontSize={'h3'}
+              fontSize={'h4'}
               textDecor={'underline'}
-              mb={'1rem'}
+              mb={['2rem', '1rem']}
             >
               You can contact me here
             </Heading>
@@ -100,7 +101,7 @@ function ContactPage() {
               listStyleType={'none'}
               display={'flex'}
               flexDir={'column'}
-              gap={'.5rem'}
+              gap={['1.5rem', '.5rem']}
             >
               <ListItem>
                 <Link href={'call:+40738467902'}>
@@ -120,7 +121,12 @@ function ContactPage() {
             </UnorderedList>
           </Box>
           <Box>
-            <Heading as="h2" fontSize={'h3'} textDecor={'underline'}>
+            <Heading
+              as="h2"
+              fontSize={'h4'}
+              mb={['1rem', 0]}
+              textDecor={'underline'}
+            >
               Follow me on social media
             </Heading>
             <UnorderedList
@@ -182,8 +188,13 @@ function ContactPage() {
         >
           <Text>OR</Text>
         </Box>
-        <Box w={'full'} maxW={'400px'}>
-          <Heading as={'h2'} fontSize={'h3'} mb={'1rem'}>
+        <Box w={'full'} maxW={'400px'} mb={['2rem', 0]}>
+          <Heading
+            as={'h2'}
+            fontSize={'h3'}
+            mb={'1rem'}
+            textAlign={['center', 'left']}
+          >
             Message me now.
           </Heading>
           <form className="contact" onSubmit={emailHandler}>

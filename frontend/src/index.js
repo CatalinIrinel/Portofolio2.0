@@ -19,7 +19,8 @@ const theme = extendTheme({
   fontSizes: {
     h2: '2.5rem',
     h1: '3rem',
-    h3: '1.5rem',
+    h3: '2rem',
+    h4: '1.5rem',
   },
 });
 

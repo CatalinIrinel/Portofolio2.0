@@ -26,6 +26,7 @@ function AboutPage() {
     error: '',
     techs: [],
   });
+
   useEffect(() => {
     const fetchTechs = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -85,10 +86,11 @@ function AboutPage() {
             key={index}
             gap={'4rem'}
           >
-            <Box borderRadius={'50%'} className={'faded'}>
+            <Box borderRadius={'50%'} className={'faded'} overflow={'hidden'}>
               <Image
-                borderRadius={'50%'}
-                boxSize={'500px'}
+                objectFit={'cover'}
+                objectPosition={'left'}
+                boxSize={['300px', '500px']}
                 src={text.image}
                 alt={text.title}
               />
@@ -124,7 +126,9 @@ function AboutPage() {
       >
         <Heading
           textAlign={['center', null, null, 'left']}
-          w={'26ch'}
+          // 26ch is about 36rem
+          maxW={'36rem'}
+          w={'full'}
           as={'h2'}
           fontSize={'h2'}
           mb={'5rem'}
@@ -143,7 +147,7 @@ function AboutPage() {
             h={'fit-content'}
             justifyContent={'space-evenly'}
             flexWrap={'wrap'}
-            gap={'3rem'}
+            gap={[0, '3rem']}
           >
             {techs.map((tech, index) => {
               return (

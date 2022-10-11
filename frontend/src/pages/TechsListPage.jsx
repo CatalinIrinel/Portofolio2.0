@@ -148,8 +148,8 @@ function TechsListPage() {
   return (
     <Box
       minH={'calc(100vh -  250px - 6rem)'}
-      mx="3rem"
-      py="4rem"
+      mx={['1rem', '3rem']}
+      py={['2rem', '4rem']}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -161,8 +161,10 @@ function TechsListPage() {
         maxW={'1100px'}
         w={'full'}
         display={'flex'}
-        justifyContent={'space-between'}
+        justifyContent={['center', null, 'space-between']}
         mb={'2rem'}
+        flexWrap={'wrap'}
+        gap={'2rem'}
       >
         <Heading as="h1">Techs List</Heading>
         <Button
@@ -183,67 +185,66 @@ function TechsListPage() {
       ) : error ? (
         <MessageBox status="error">{error}</MessageBox>
       ) : (
-        <TableContainer maxW={'1300px'} w="full">
-          <Table variant="simple">
-            <Thead bg={'brand.500'}>
-              <Tr>
-                <Th>ID</Th>
-                <Th>NAME</Th>
-                <Th>IMAGE</Th>
-                <Th>ACTIONS</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {techs.map((tech) => (
-                <Tr key={tech._id}>
-                  <Td>{tech._id}</Td>
-                  <Td>{tech.tech}</Td>
-                  <Td>
-                    <Image
-                      w={'50px'}
-                      h={'50px'}
-                      objectFit={'contain'}
-                      src={tech.image}
-                    />
-                  </Td>
-                  <Td color={'#000'}>
-                    <IconButton
-                      fontSize={'1.5rem'}
-                      onClick={() => navigate(`/admin/techs/${tech._id}`)}
-                      icon={<BiEdit />}
-                    />{' '}
-                    <IconButton
-                      fontSize={'1.5rem'}
-                      onClick={() => deleteHandler(tech)}
-                      icon={<BiTrash />}
-                    />
-                  </Td>
+        <>
+          <TableContainer maxW={'1300px'} w="full">
+            <Table variant="simple">
+              <Thead bg={'brand.500'}>
+                <Tr>
+                  <Th>IMAGE</Th>
+                  <Th>NAME</Th>
+                  <Th>ACTIONS</Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
-          <Box w="full" display={'flex'}>
+              </Thead>
+              <Tbody>
+                {techs.map((tech) => (
+                  <Tr key={tech._id}>
+                    <Td>
+                      <Image
+                        w={'50px'}
+                        h={'50px'}
+                        objectFit={'contain'}
+                        src={tech.image}
+                      />
+                    </Td>
+                    <Td>{tech.tech}</Td>
+                    <Td color={'#000'}>
+                      <IconButton
+                        fontSize={'1.5rem'}
+                        onClick={() => navigate(`/admin/techs/${tech._id}`)}
+                        icon={<BiEdit />}
+                      />{' '}
+                      <IconButton
+                        fontSize={'1.5rem'}
+                        onClick={() => deleteHandler(tech)}
+                        icon={<BiTrash />}
+                      />
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+          <Box maxW={'1300px'} mt={'2rem'} w="full" display={'flex'}>
             {[...Array(pages).keys()].map((x) => (
-              <Link
-                className={x + 1 === Number(page) ? 'btn text-bold' : 'btn'}
-                key={x + 1}
-                to={`/admin/techs?page=${x + 1}`}
-              >
+              <Link key={x + 1} to={`/admin/techs?page=${x + 1}`}>
                 <Box
-                  border={'1px solid #000'}
+                  border={'1px solid #fff'}
                   boxSize={'25px'}
                   mr={3}
                   display={'flex'}
                   alignItems={'center'}
                   justifyContent={'center'}
                   borderRadius={'0.3rem'}
+                  color={x + 1 === Number(page) ? 'brand.100' : '#fff'}
+                  bg={x + 1 === Number(page) ? 'brand.600' : 'transparent'}
+                  fontWeight={x + 1 === Number(page) ? 'bold' : 'normal'}
                 >
                   {x + 1}
                 </Box>
               </Link>
             ))}
           </Box>
-        </TableContainer>
+        </>
       )}
     </Box>
   );

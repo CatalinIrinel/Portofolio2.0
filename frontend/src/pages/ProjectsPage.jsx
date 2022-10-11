@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import Card from '../components/Card';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 // import { projectsData } from '../constants/Texts';
 
 const reducer = (state, action) => {
@@ -28,6 +30,7 @@ function ProjectsPage() {
   });
 
   useEffect(() => {
+    Aos.init();
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {

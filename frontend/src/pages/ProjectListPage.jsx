@@ -11,6 +11,7 @@ import {
   Tr,
   Link as ExtLink,
   Button,
+  Image,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
@@ -147,8 +148,8 @@ function ProjectListPage() {
   return (
     <Box
       minH={'calc(100vh -  250px - 6rem)'}
-      mx="3rem"
-      py="4rem"
+      mx={['1rem', '3rem']}
+      py={['2rem', '4rem']}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -160,10 +161,14 @@ function ProjectListPage() {
         maxW={'1100px'}
         w={'full'}
         display={'flex'}
-        justifyContent={'space-between'}
+        justifyContent={['center', null, 'space-between']}
         mb={'2rem'}
+        flexWrap={'wrap'}
+        gap={'2rem'}
       >
-        <Heading as="h1">Projects List</Heading>
+        <Heading as="h1" fontSize={'h1'}>
+          Projects List
+        </Heading>
         <Button
           type="button"
           onClick={createHandler}
@@ -182,70 +187,78 @@ function ProjectListPage() {
       ) : error ? (
         <MessageBox status="error">{error}</MessageBox>
       ) : (
-        <TableContainer maxW={'1300px'} w="full">
-          <Table variant="simple">
-            <Thead bg={'brand.500'}>
-              <Tr>
-                <Th>ID</Th>
-                <Th>NAME</Th>
-                <Th>LINK</Th>
-                <Th>ACTIONS</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {projects.map((project) => (
-                <Tr key={project._id}>
-                  <Td>{project._id}</Td>
-                  <Td>{project.name}</Td>
-                  <Td>
-                    {' '}
-                    <ExtLink
-                      href={project.link}
-                      target="_blank"
-                      aria-label="facebook"
-                      rel="noreferrer"
-                    >
-                      {project.link}
-                    </ExtLink>{' '}
-                  </Td>
-                  <Td color={'#000'}>
-                    <IconButton
-                      fontSize={'1.5rem'}
-                      onClick={() => navigate(`/admin/project/${project._id}`)}
-                      icon={<BiEdit />}
-                    />{' '}
-                    <IconButton
-                      fontSize={'1.5rem'}
-                      onClick={() => deleteHandler(project)}
-                      icon={<BiTrash />}
-                    />
-                  </Td>
+        <>
+          <TableContainer maxW={'1300px'} w="full">
+            <Table variant="simple">
+              <Thead bg={'brand.500'}>
+                <Tr>
+                  <Th>ID</Th>
+                  <Th>NAME</Th>
+                  <Th>LINK</Th>
+                  <Th>ACTIONS</Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
-          <Box w="full" display={'flex'}>
+              </Thead>
+              <Tbody>
+                {projects.map((project) => (
+                  <Tr key={project._id}>
+                    <Td>
+                      <Image
+                        w={'160px'}
+                        src={project.image}
+                        alt={'Web development ' + project.name}
+                      />
+                    </Td>
+                    <Td>{project.name}</Td>
+                    <Td>
+                      <ExtLink
+                        href={project.link}
+                        target="_blank"
+                        aria-label="facebook"
+                        rel="noreferrer"
+                      >
+                        {project.link}
+                      </ExtLink>{' '}
+                    </Td>
+                    <Td color={'#000'}>
+                      <IconButton
+                        fontSize={'1.5rem'}
+                        onClick={() =>
+                          navigate(`/admin/project/${project._id}`)
+                        }
+                        icon={<BiEdit />}
+                      />{' '}
+                      <IconButton
+                        fontSize={'1.5rem'}
+                        onClick={() => deleteHandler(project)}
+                        icon={<BiTrash />}
+                      />
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+          <Box maxW={'1300px'} mt={'1rem'} w="full" display={'flex'}>
             {[...Array(pages).keys()].map((x) => (
-              <Link
-                className={x + 1 === Number(page) ? 'btn text-bold' : 'btn'}
-                key={x + 1}
-                to={`/admin/projects?page=${x + 1}`}
-              >
+              <Link key={x + 1} to={`/admin/projects?page=${x + 1}`}>
                 <Box
-                  border={'1px solid #000'}
+                  border={'1px solid #fff'}
                   boxSize={'25px'}
                   mr={3}
                   display={'flex'}
                   alignItems={'center'}
                   justifyContent={'center'}
                   borderRadius={'0.3rem'}
+                  color={x + 1 === Number(page) ? 'brand.100' : '#fff'}
+                  bg={x + 1 === Number(page) ? 'brand.600' : 'transparent'}
+                  fontWeight={x + 1 === Number(page) ? 'bold' : 'normal'}
                 >
                   {x + 1}
                 </Box>
               </Link>
             ))}
           </Box>
-        </TableContainer>
+        </>
       )}
     </Box>
   );

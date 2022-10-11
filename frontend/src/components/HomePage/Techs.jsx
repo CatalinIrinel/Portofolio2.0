@@ -77,7 +77,7 @@ function Techs() {
             as={'h2'}
             color={'#fff'}
             w={['fit-content', null, null, '700px']}
-            fontSize={'3rem'}
+            fontSize={'h2'}
             fontWeight={600}
           >
             {techText.title}
