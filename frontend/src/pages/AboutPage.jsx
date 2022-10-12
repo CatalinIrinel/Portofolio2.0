@@ -31,7 +31,7 @@ function AboutPage() {
     const fetchTechs = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/techs');
+        const result = await axios.get('https://peak.babyfie.ro/api/techs');
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

@@ -34,7 +34,7 @@ function ProjectsPage() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/projects');
+        const result = await axios.get('https://peak.babyfie.ro/api/projects');
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -86,27 +86,6 @@ function ProjectsPage() {
           ))}
         </Box>
       )}
-      {/* <Box
-        w={'full'}
-        display={'flex'}
-        flexDirection={'column'}
-        alignItems="center"
-        justifyContent={'center'}
-        gap={'5rem'}
-        mb={'5rem'}
-      >
-        {projectsData.map((project) => (
-          <Card
-            key={project._id}
-            name={project.name}
-            src={project.src}
-            description={project.description}
-            techs={project.techs}
-            imgStart={project.imgStart}
-            link={project.link}
-          />
-        ))}
-      </Box> */}
     </Box>
   );
 }

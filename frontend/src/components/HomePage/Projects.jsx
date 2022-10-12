@@ -32,7 +32,9 @@ function Projects() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/projects/home');
+        const result = await axios.get(
+          'https://peak.babyfie.ro/api/projects/home'
+        );
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

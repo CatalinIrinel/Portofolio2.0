@@ -67,7 +67,9 @@ function EditTechsPage() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
 
-        const { data } = await axios.get(`/api/techs/${techId}`);
+        const { data } = await axios.get(
+          `https://peak.babyfie.ro/api/techs/${techId}`
+        );
 
         setTech(data.tech);
         setImage(data.image);
@@ -118,12 +120,16 @@ function EditTechsPage() {
 
     try {
       dispatch({ type: 'UPLOAD_REQUEST' });
-      const { data } = await axios.post('/api/upload', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          authorization: `Bearer ${userInfo.token}`,
-        },
-      });
+      const { data } = await axios.post(
+        'https://peak.babyfie.ro/api/upload',
+        bodyFormData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
       dispatch({ type: 'UPLOAD_SUCCESS' });
 
       setImage(data.secure_url);

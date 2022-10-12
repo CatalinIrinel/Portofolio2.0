@@ -38,7 +38,7 @@ function ContactPage() {
   const emailHandler = async (e) => {
     e.preventDefault();
     await axios
-      .post('/api/mail/contact', {
+      .post('https://peak.babyfie.ro/api/mail/contact', {
         name,
         email,
         message,

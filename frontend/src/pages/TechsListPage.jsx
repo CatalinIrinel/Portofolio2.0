@@ -93,9 +93,12 @@ function TechsListPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/api/techs/admin?page=${page}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        const { data } = await axios.get(
+          `https://peak.babyfie.ro/api/techs/admin?page=${page}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
@@ -112,7 +115,7 @@ function TechsListPage() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        '/api/techs/new',
+        'https://peak.babyfie.ro/api/techs/new',
         {},
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -131,7 +134,7 @@ function TechsListPage() {
   const deleteHandler = async (tech) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(`/api/techs/${tech._id}`, {
+        await axios.delete(`https://peak.babyfie.ro/api/techs/${tech._id}`, {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         toast.success('Tech deleted successfully');

@@ -14,7 +14,6 @@ import { Box } from '@chakra-ui/react';
 import AdminRoute from './components/AdminRoute';
 import ScrollToTop from './ScrollToTop';
 import LogInPage from './pages/LogInPage';
-import RegisterPage from './pages/RegisterPage';
 // Toast alerts
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -45,7 +44,6 @@ function App() {
           <Route path={'/projects'} element={<ProjectsPage />} />
           <Route path={'/contact'} element={<ContactPage />} />
           <Route path={'/login'} element={<LogInPage />} />
-          <Route path={'/register'} element={<RegisterPage />} />
 
           {/* Admin Routes */}
 

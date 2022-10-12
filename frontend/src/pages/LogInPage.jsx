@@ -26,10 +26,13 @@ function LogInPage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/signin', {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        'https://peak.babyfie.ro/api/users/signin',
+        {
+          email,
+          password,
+        }
+      );
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate('/');

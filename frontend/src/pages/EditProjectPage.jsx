@@ -79,7 +79,9 @@ function EditProductPage() {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
 
-        const { data } = await axios.get(`/api/projects/${projectId}`);
+        const { data } = await axios.get(
+          `https://peak.babyfie.ro/api/projects/${projectId}`
+        );
 
         setName(data.name);
         setTechnology(data.technology);
@@ -104,7 +106,7 @@ function EditProductPage() {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/projects/${projectId}`,
+        `https://peak.babyfie.ro/api/projects/${projectId}`,
         {
           _id: projectId,
           name,
@@ -135,12 +137,16 @@ function EditProductPage() {
 
     try {
       dispatch({ type: 'UPLOAD_REQUEST' });
-      const { data } = await axios.post('/api/upload', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          authorization: `Bearer ${userInfo.token}`,
-        },
-      });
+      const { data } = await axios.post(
+        'https://peak.babyfie.ro/api/upload',
+        bodyFormData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
       dispatch({ type: 'UPLOAD_SUCCESS' });
 
       if (forImages) {

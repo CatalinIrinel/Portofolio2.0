@@ -93,9 +93,12 @@ function ProjectListPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/api/projects/admin?page=${page}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        const { data } = await axios.get(
+          `https://peak.babyfie.ro/api/projects/admin?page=${page}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
@@ -112,7 +115,7 @@ function ProjectListPage() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        '/api/projects/new',
+        'https://peak.babyfie.ro/api/projects/new',
         {},
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -131,9 +134,12 @@ function ProjectListPage() {
   const deleteHandler = async (project) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
-        await axios.delete(`/api/projects/${project._id}`, {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        });
+        await axios.delete(
+          `https://peak.babyfie.ro/api/projects/${project._id}`,
+          {
+            headers: { Authorization: `Bearer ${userInfo.token}` },
+          }
+        );
         toast.success('Project deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
       } catch (err) {
