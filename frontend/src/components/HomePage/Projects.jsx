@@ -82,7 +82,7 @@ function Projects() {
           display={'flex'}
           h={'fit-content'}
           justifyContent={['center', null, null, 'space-between']}
-          alignItems={'center'}
+          alignItems={['center', 'flex-start']}
           flexWrap={'wrap'}
           gap={['5rem', null, null, 0]}
         >

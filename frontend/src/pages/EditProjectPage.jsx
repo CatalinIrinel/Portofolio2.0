@@ -11,6 +11,7 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  Textarea,
   UnorderedList,
 } from '@chakra-ui/react';
 import axios from 'axios';
@@ -72,15 +73,7 @@ function EditProductPage() {
   const [image, setImage] = useState('');
   const [imgStart, setImgStart] = useState(true);
   const [description, setDescription] = useState('');
-  const [value, setValue] = useState('1');
 
-  const imagePosition = () => {
-    if (value === '1') {
-      setImgStart(true);
-    } else {
-      setImgStart(false);
-    }
-  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -108,9 +101,7 @@ function EditProductPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     try {
-      console.log(imgStart);
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
         `/api/projects/${projectId}`,
@@ -199,8 +190,11 @@ function EditProductPage() {
                 Website Name:{' '}
               </FormLabel>
               <Input
-                borderColor={'#000'}
-                w="300px"
+                borderTop={0}
+                borderRight={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
+                w={['300px', '500px']}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -209,7 +203,10 @@ function EditProductPage() {
             <FormControl mb="2rem">
               <FormLabel htmlFor="brand">Link:</FormLabel>
               <Input
-                borderColor={'#000'}
+                borderTop={0}
+                borderLeft={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
                 w={['300px', '500px']}
                 type="text"
                 value={link}
@@ -222,9 +219,12 @@ function EditProductPage() {
               <FormLabel htmlFor="description" fontWeight={'bold'}>
                 Description:
               </FormLabel>
-              <Input
-                borderColor={'#000'}
-                w="300px"
+              <Textarea
+                borderTop={0}
+                borderRight={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
+                w={['300px', '500px']}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -236,24 +236,21 @@ function EditProductPage() {
               </FormLabel>
 
               <RadioGroup
-                onChange={() => {
-                  setValue();
-                  imagePosition();
-                }}
-                value={value}
+                onChange={() => setImgStart((prev) => !prev)}
+                value={imgStart.toString()}
               >
                 <Stack>
                   {' '}
-                  <Radio size={'lg'} value={'1'}>
+                  <Radio size={'lg'} value={'true'}>
                     Left side
                   </Radio>
-                  <Radio size={'lg'} value={'0'}>
+                  <Radio size={'lg'} value={'false'}>
                     Right side
                   </Radio>
                 </Stack>
               </RadioGroup>
               <FormHelperText>
-                Image now is on the {value === '1' ? 'left side' : 'right side'}
+                Image now is on the {imgStart ? 'left side' : 'right side'}
               </FormHelperText>
             </FormControl>
 
@@ -262,8 +259,11 @@ function EditProductPage() {
                 Website Image:
               </FormLabel>
               <Input
-                borderColor={'#000'}
-                w="300px"
+                borderTop={0}
+                borderLeft={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
+                w={['300px', '500px']}
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               />
@@ -273,8 +273,11 @@ function EditProductPage() {
                 Change Website image:
               </FormLabel>
               <Input
-                borderColor={'#000'}
-                w="300px"
+                borderTop={0}
+                borderRight={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
+                w={['300px', '500px']}
                 type={'file'}
                 onChange={(e) => uploadFileHandler(e, false)}
               />
@@ -286,7 +289,7 @@ function EditProductPage() {
               {technology.length === 0 && <MessageBox>Nici o poza</MessageBox>}
               <UnorderedList listStyleType={'none'}>
                 {technology.map((x) => (
-                  <ListItem key={x} mb={'0.5rem'}>
+                  <ListItem w={'500px'} key={x} mb={'0.5rem'}>
                     {x}
 
                     <IconButton
@@ -307,8 +310,11 @@ function EditProductPage() {
                 Upload techs images:
               </FormLabel>
               <Input
-                borderColor={'#000'}
-                w="300px"
+                borderTop={0}
+                borderLeft={0}
+                borderWidth={'3px'}
+                borderColor={'#fff'}
+                w={['300px', '500px']}
                 type={'file'}
                 onChange={(e) => uploadFileHandler(e, true)}
               />

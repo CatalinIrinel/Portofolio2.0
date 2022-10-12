@@ -6,12 +6,41 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.rotate {
+  animation: rotate 20s infinite;
+}
+
+.translate {
+  position: absolute;
+  z-index: 2;
+}
+.translate:nth-child(1) {
+  top: -10%;
+  animation: translate 20s infinite linear;
+}
+
+.translate:nth-child(2) {
+  top: 70%;
+  animation: translate 20s infinite -2s linear;
+}
+
+.translate:nth-child(3) {
+  top: 15%;
+  animation: translate 20s infinite -5s linear;
+}
 form.contact {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
+.glass {
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 1);
+  backdrop-filter: blur(9.2px);
+  -webkit-backdrop-filter: blur(9.2px);
+}
 .highlight {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 4px 5px;
@@ -186,6 +215,33 @@ form.contact {
   border-right: 3px solid;
 }
 
+/* animations */
+
+@keyframes translate {
+  0% {
+    left: -10%;
+    opacity: 0;
+  }
+  50% {
+    left: 50%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
 @keyframes typing {
   from {
     width: 0;
@@ -228,6 +284,7 @@ form.contact {
   }
 }
 
+/* media querries */
 @media only screen and (max-width: 900px) {
   .dark-light {
     max-width: 400px;

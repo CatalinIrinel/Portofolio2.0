@@ -14,6 +14,7 @@ const theme = extendTheme({
       400: '#7063BF',
       500: '#D5CEFF',
       600: '#F3D587',
+      glass: 'rgba(255,255,255,0.2)',
     },
   },
   fontSizes: {

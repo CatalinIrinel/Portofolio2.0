@@ -51,6 +51,8 @@ function Techs() {
       flexDirection={'column'}
       mt={'50px'}
       gap={['5rem', null, null, 0]}
+      position={'relative'}
+      zIndex={5}
     >
       <Box
         w="full"
@@ -67,6 +69,7 @@ function Techs() {
           gridArea={'col1'}
         />
         <Box
+          w={'full'}
           display={'flex'}
           flexDirection={'column'}
           alignItems={['center', null, null, 'flex-end']}

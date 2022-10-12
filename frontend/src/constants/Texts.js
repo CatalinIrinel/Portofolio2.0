@@ -1,3 +1,14 @@
+import {
+  MdAutoGraph,
+  MdAdminPanelSettings,
+  MdSecurity,
+  MdImportantDevices,
+  MdDeveloperMode,
+  MdDesignServices,
+} from 'react-icons/md';
+import { FaPeopleArrows } from 'react-icons/fa';
+import { GiLightBulb, GiDiscussion, GiTransform } from 'react-icons/gi';
+
 export const hero = {
   name: 'Istratoae Cătălin',
   title: 'Fullstack Web Developer',
@@ -11,42 +22,6 @@ export const projects = {
   link: '/projects',
 };
 
-export const topProjects = [
-  {
-    title: 'Babyfie',
-    description:
-      'Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly.',
-    image: '/images/babyfie.png.webp',
-    link: 'https://babyfie.ro',
-    dataAos: 'flip-right',
-    dataAosDuration: '1500',
-    dataAosEasing: 'ease-in-out',
-    aosDelay: '0',
-  },
-  {
-    title: 'Demo Landing Page',
-    description:
-      'Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly.',
-    image: '/images/demo.png.webp',
-    link: 'https://demo2.peakngo.com',
-    dataAos: 'flip-up',
-    dataAosDuration: '1500',
-    dataAosEasing: 'ease-in-out',
-    aosDelay: '500',
-  },
-  {
-    title: 'Cerebrium',
-    description:
-      'Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly. Later for the text but it will be longer so i have to write something here now so i can design it properly.',
-    image: '/images/cerebrium.png.webp',
-    link: 'https://cerebrium.ro',
-    dataAos: 'flip-left',
-    dataAosDuration: '1500',
-    dataAosEasing: 'ease-in-out',
-    aosDelay: '1000',
-  },
-];
-
 export const techText = {
   title: 'Technologies that I use',
   description:
@@ -55,6 +30,97 @@ export const techText = {
   link: '/about',
 };
 
+export const solutionData = [
+  {
+    image: MdImportantDevices,
+    title: 'Productivity',
+    text: 'Our solutions have the scope to boost productivity',
+    effect: 'fade-right',
+    effectDuration: '1500',
+    effectEase: 'ease-in-out',
+    effectDelay: 250,
+  },
+  {
+    image: MdAutoGraph,
+    title: 'Scalability',
+    text: 'Our solutions can handle any volume of information',
+    effect: 'fade-up',
+    effectDuration: '1500',
+    effectEase: 'ease-in-out',
+    effectDelay: 300,
+  },
+  {
+    image: MdAdminPanelSettings,
+    title: 'Administration',
+    text: 'Our solutions come with an admin dashboard that allows modifications of the system and statistics',
+    effect: 'fade-up',
+    effectDuration: '1500',
+    effectEase: 'ease-in-out',
+    effectDelay: 500,
+  },
+  {
+    image: MdSecurity,
+    title: 'Security',
+    text: 'Our solutions respect the isp protection standards. All the data is encrypted',
+    effect: 'fade-left',
+    effectDuration: '1500',
+    effectEase: 'ease-in-out',
+    effectDelay: 700,
+  },
+];
+
+export const processData = {
+  process: [
+    {
+      image: GiDiscussion,
+      title: '1. Dialogue',
+      text: 'we meet online or in person and discuss about the needs of your business',
+      effect: 'fade-down-right',
+      effectDuration: '1500',
+      effectEase: 'ease-in-out',
+      effectDelay: 100,
+    },
+    {
+      image: GiLightBulb,
+      title: '2. Proposition',
+      text: 'based on the previous discussion we present our solution',
+      effect: 'fade',
+      effectDuration: '2200',
+      effectEase: 'ease-in-out',
+      effectDelay: 300,
+    },
+    {
+      image: MdDeveloperMode,
+      title: '3. Developing',
+      text: 'we work in sprints to develop the solution and present to you each module',
+      effect: 'fade',
+      effectDuration: '2200',
+      effectEase: 'ease-in-out',
+      effectDelay: 300,
+    },
+    {
+      image: GiTransform,
+      title: '4. Adaptation',
+      text: 'based on the feedback of the modules we adapt the application to fit perfectly with your needs',
+      effect: 'fade-down-left',
+      effectDuration: '1500',
+      effectEase: 'ease-in-out',
+      effectDelay: 100,
+    },
+  ],
+  texts: [
+    {
+      image: FaPeopleArrows,
+      title: 'Best solutions for our partners!',
+      text: 'Our ideology is that we have partners not clients, on the grounds that partners collaborate on the long term, as clients come and go.\u000A\u000AAnd so we offer our partners modern, fast and with a low maintenance cost web application',
+    },
+    {
+      image: MdDesignServices,
+      title: 'What we build?',
+      text: `The web applications that we build are secure, flexible and scalable, with an attractive UI that makes the user experience a delight.\u000A\u000AOur team works with the latest technologies based on javascript, both on back end and front end.\u000A\u000AThe UI/UX is built from scratch so it can mold on your type of business. We focus on efficiency, so that our partners activities can be boosted.`,
+    },
+  ],
+};
 export const aboutPage = {
   about: [
     {
@@ -77,7 +143,7 @@ export const aboutPage = {
 
 export const contactData = {
   socialMedia: {
-    github: 'https://github.com/CatalinIrinel',
+    github: 'https://github.com/CatalinIrinel?tab=repositories',
     facebook: 'https://www.facebook.com/profile.php?id=100081149877382',
     instagram: 'https://www.instagram.com/peakngo_web/',
     linkedin: 'https://www.linkedin.com/in/catalin-istratoae-7aba211a3/',

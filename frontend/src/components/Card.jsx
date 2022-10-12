@@ -17,7 +17,7 @@ function Card({ name, src, description, techs, imgStart, link }) {
         `${imgStart ? `'col2 col1'` : `'col1 col2'`}`,
       ]}
       gap={['2rem', null, null, 0]}
-      data-aos={'fade-up'}
+      data-aos={imgStart ? 'fade-right' : 'fade-left'}
       data-aos-duration={'1500'}
       data-aos-easing={'ease-in-out'}
     >
@@ -43,7 +43,11 @@ function Card({ name, src, description, techs, imgStart, link }) {
         >
           {name}
         </Heading>
-        <Text color={'brand.500'} fontSize={['1rem', '1.5rem']}>
+        <Text
+          color={'brand.500'}
+          fontSize={['1rem', '1.2rem']}
+          textAlign={imgStart ? 'right' : 'left'}
+        >
           {description}
         </Text>
         <Box
@@ -51,6 +55,7 @@ function Card({ name, src, description, techs, imgStart, link }) {
           flexWrap={'wrap'}
           alignItems={'center'}
           gap={'.5rem'}
+          mt={'1rem'}
         >
           {imgTechs.map((tech) => (
             <Image boxSize={'50px'} src={tech} alt={name} />
@@ -61,6 +66,7 @@ function Card({ name, src, description, techs, imgStart, link }) {
         gridArea={'col2'}
         display={'flex'}
         justifyContent={`${imgStart ? 'flex-start' : 'flex-end'}`}
+        alignItems={'center'}
       >
         <Box
           w={'100%'}

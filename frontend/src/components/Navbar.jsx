@@ -14,7 +14,7 @@ import {
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
-import { ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { logo } from '../constants/Images';
 
 function Navbar({ toggle }) {

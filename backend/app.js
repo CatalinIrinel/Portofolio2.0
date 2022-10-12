@@ -8,6 +8,7 @@ const { uploadRouter } = require('./routes/uploadRoutes.js');
 const { projectRouter } = require('./routes/projectRoutes.js');
 const { userRouter } = require('./routes/userRoutes.js');
 const { techRouter } = require('./routes/techRoutes.js');
+const { mailRouter } = require('./routes/mailRoutes.js');
 // const { seedRouter } = require('./routes/seedRouter.js');
 
 dotenv.config();
@@ -27,9 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-//seed route
-// app.use('/api/seed', seedRouter);
 //routes
+app.use('/api/mail', mailRouter);
 app.use('/api/techs', techRouter);
 app.use('/api/users', userRouter);
 app.use('/api/projects', projectRouter);

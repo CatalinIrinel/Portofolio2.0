@@ -192,7 +192,7 @@ function ProjectListPage() {
             <Table variant="simple">
               <Thead bg={'brand.500'}>
                 <Tr>
-                  <Th>ID</Th>
+                  <Th>IMAGE</Th>
                   <Th>NAME</Th>
                   <Th>LINK</Th>
                   <Th>ACTIONS</Th>

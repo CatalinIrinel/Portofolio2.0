@@ -20,7 +20,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TechsListPage from './pages/TechsListPage';
 import EditTechsPage from './pages/EditTechPage';
-import DashboardPage from './pages/DashboardPage';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,14 +48,7 @@ function App() {
           <Route path={'/register'} element={<RegisterPage />} />
 
           {/* Admin Routes */}
-          <Route
-            path="/admin/dashboard"
-            element={
-              <AdminRoute>
-                <DashboardPage />
-              </AdminRoute>
-            }
-          />
+
           <Route
             path="/admin/project/:id"
             element={

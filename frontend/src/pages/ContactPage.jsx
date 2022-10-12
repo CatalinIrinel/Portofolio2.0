@@ -37,14 +37,13 @@ function ContactPage() {
 
   const emailHandler = async (e) => {
     e.preventDefault();
-    document.getElementById('formC').reset();
     await axios
-      .post('/send-mail', {
+      .post('/api/mail/contact', {
         name,
         email,
         message,
       })
-      .then(toast.succes('Mesajul a fost trimis'));
+      .then(toast.success('Mesajul a fost trimis'));
   };
   return (
     <Box
@@ -244,7 +243,7 @@ function ContactPage() {
               >
                 Send Message
               </Button>
-              <Button
+              {/* <Button
                 w={'150px'}
                 type="reset"
                 bg={'none'}
@@ -254,7 +253,7 @@ function ContactPage() {
                 _hover={'none'}
               >
                 Cancel
-              </Button>
+              </Button> */}
             </FormControl>
           </form>
         </Box>
