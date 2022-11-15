@@ -92,7 +92,7 @@ function EditTechsPage() {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/techs/${techId}`,
+        `https://peak.babyfie.ro/api/techs/${techId}`,
         {
           _id: techId,
           tech,
@@ -106,7 +106,7 @@ function EditTechsPage() {
       dispatch({
         type: 'UPDATE_SUCCESS',
       });
-      toast.success('Proiect editat cu succes');
+      toast.success('Tech editat cu succes');
       navigate('/admin/techs');
     } catch (err) {
       toast.error(getError(err));

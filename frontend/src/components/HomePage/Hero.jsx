@@ -38,7 +38,7 @@ function Hero() {
           {hero.name}
         </Heading>
         <Heading
-          as={'h3'}
+          as={'h2'}
           mb={'2rem'}
           fontSize={['h3', 'h2']}
           fontWeight={'100'}
@@ -60,11 +60,13 @@ function Hero() {
         <Image
           boxSize={['250px', '450px']}
           src={heroImg.laptop}
+          alt={'Peak & Go - Web Development'}
           className="laptop"
         />
         <Image
           boxSize={['150px', '250px']}
           src={heroImg.phone}
+          alt={'Peak & Go - Web Development'}
           className="phone"
         />
       </Box>

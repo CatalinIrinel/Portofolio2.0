@@ -29,7 +29,7 @@ function Solutions() {
     >
       <Heading as={'h2'} fontSize={'h2'}>
         {' '}
-        What Solutions do I offer?
+        What solutions do I offer?
       </Heading>
       <Box
         w={'full'}

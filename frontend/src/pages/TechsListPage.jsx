@@ -121,9 +121,9 @@ function TechsListPage() {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
-      toast.success('Project created successfully');
+      toast.success('Tech created successfully');
       dispatch({ type: 'CREATE_SUCCESS' });
-      navigate(`/admin/tech/${data.project._id}`);
+      navigate(`/admin/tech/${data.techs._id}`);
     } catch (err) {
       toast.error(getError(error));
       dispatch({

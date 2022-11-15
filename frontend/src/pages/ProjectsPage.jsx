@@ -7,7 +7,6 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-// import { projectsData } from '../constants/Texts';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,6 +34,7 @@ function ProjectsPage() {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
         const result = await axios.get('https://peak.babyfie.ro/api/projects');
+        console.log(result);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

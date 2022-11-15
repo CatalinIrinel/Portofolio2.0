@@ -6,12 +6,12 @@ const { isAdmin, isAuth } = require('../utils.js');
 const projectRouter = express.Router();
 
 projectRouter.get('/', async (req, res) => {
-  const project = await Project.find();
+  const project = await Project.find().sort({ name: 1 });
   res.send(project);
 });
 
 projectRouter.get('/home', async (req, res) => {
-  const project = await Project.find().limit(3);
+  const project = await Project.find().limit(3).sort({ name: 1 });
   res.send(project);
 });
 

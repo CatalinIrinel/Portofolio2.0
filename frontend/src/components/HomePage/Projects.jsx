@@ -121,6 +121,7 @@ function Projects() {
                     w={['350px', '400px']}
                     h={['200px', '200px']}
                     src={project.image}
+                    alt={project.name}
                   />
                 </Link>
                 <Heading

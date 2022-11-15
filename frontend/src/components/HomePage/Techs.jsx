@@ -124,7 +124,7 @@ function Techs() {
                 data-aos-easing={tech.effectEase}
               >
                 <Box boxSize={'80px'} alignItems={'center'} display={'flex'}>
-                  <Image w={'80px'} src={tech.image} />
+                  <Image w={'80px'} src={tech.image} alt={tech.tech} />
                 </Box>
 
                 <Heading

@@ -75,7 +75,7 @@ function Card({ name, src, description, techs, imgStart, link }) {
           overflow={'hidden'}
         >
           <Link href={link} isExternal target="_blank" aria-label={name}>
-            <Image src={src} name={name} />
+            <Image w={'550px'} h={'260px'} src={src} alt={name} />
           </Link>
         </Box>
       </Box>
